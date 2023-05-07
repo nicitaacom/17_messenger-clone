@@ -6,6 +6,7 @@ import { FieldValues,useForm,SubmitHandler } from "react-hook-form"
 import Button from "../../components/Button"
 import AuthSocialButton from "./AuthSocialButton"
 import {BsGithub, BsGoogle} from 'react-icons/bs'
+import axios from "axios"
 
 type Variant = 'LOGIN' | 'REGISTER'
 
@@ -40,7 +41,7 @@ const AuthForm = () => {
     setIsLoading(true)
 
     if (variant === 'REGISTER') {
-      //axios Register
+      axios.post('/api/register/',data)
     }
 
     if (variant === 'LOGIN') {
@@ -91,10 +92,10 @@ const AuthForm = () => {
 
               <div className="flex gap-2 justify-center text-sm mt-6 px-2 text-gray-5">
                   <div>
-                    {variant === 'LOGIN' ? 'New to messenger?' : 'Already have an accout?'}
+                    {variant === 'LOGIN' ? 'New to messenger?' : 'Already have an account?'}
                   </div>
                   <div className="underline cursor-pointer" onClick={toggleVariant}>
-                    {variant === 'LOGIN' ? 'Create an accout' : 'Login'}
+                    {variant === 'LOGIN' ? 'Create an account' : 'Login'}
                   </div>
               </div>
 
