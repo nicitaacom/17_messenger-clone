@@ -23,8 +23,8 @@ model User {
   conversationIds String[] @db.ObjectId
   conversations Conversation[] @relation(fields: [conversationIds],references: [id])
 
-  seeMessageIds String[] @db.ObjectId
-  seenMessages Message[] @relation("Seen",fields: [seeMessageIds],references: [id])
+  seenMessageIds String[] @db.ObjectId
+  seenMessages Message[] @relation("Seen",fields: [seenMessageIds],references: [id])
 
   accounts Account[]
   messages Message[]
