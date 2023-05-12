@@ -19,8 +19,10 @@ import { useRouter } from 'next/navigation'
 
 const LoginModal = () => {
   const router = useRouter()
+  
   const registerModal = useRegisterModal()
   const loginModal = useLoginModal()
+
   const [isLoading,setIsLoading] = useState(false)
 
   const {register,handleSubmit,
