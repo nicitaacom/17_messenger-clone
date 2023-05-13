@@ -53,7 +53,7 @@ model Listing {
   category String
   roomCount Int
   bathroomCount Int
-  guestsCount Int
+  guestCount Int
   locationValue String
   userId String @db.ObjectId
   price Int
