@@ -1,17 +1,18 @@
 'use client'
 
+import Image from 'next/image'
+
 import Heading from "../Heading"
 import HeartButton from "../HeartButton"
 import useCountries from "../../hooks/useCountries"
 import { SafeUser } from "../../types"
-import Image from 'next/image'
 
 interface ListingHeadProps {
   title:string
   locationValue:string
   imageSrc:string
   id:string
-  currentUser:SafeUser | null
+  currentUser?:SafeUser | null
 }
 
 const ListingHead:React.FC<ListingHeadProps> = ({
@@ -27,10 +28,8 @@ const ListingHead:React.FC<ListingHeadProps> = ({
         <Image className='object-cover w-full ' src={imageSrc} alt='Image' fill/>
         <div className="absolute top-5 right-5">
           <HeartButton listingId={id} currentUser={currentUser}/>
-
         </div>
       </div>
-
     </>
    );
 }
