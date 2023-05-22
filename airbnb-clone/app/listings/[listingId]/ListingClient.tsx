@@ -1,18 +1,20 @@
 'use client'
 
-import Container from "@/app/components/Container";
-import { categories } from "@/app/components/navbar/Categories";
-import { SafeListing, SafeReservation, SafeUser } from "@/app/types";
+import axios from "axios";
 import { useCallback, useEffect, useMemo, useState } from "react";
-import ListingHead from "../../components/listings/ListingHead";
-import ListingInfo from "@/app/components/listings/ListingInfo";
-import useLoginModal from "@/app/hooks/useLoginModal";
+import { toast } from "react-hot-toast";
+import {Range} from 'react-date-range'
 import { useRouter } from "next/navigation";
 import { differenceInCalendarDays, eachDayOfInterval } from "date-fns";
-import axios from "axios";
-import { toast } from "react-hot-toast";
+
+import useLoginModal from "@/app/hooks/useLoginModal";
+import { SafeListing, SafeReservation, SafeUser } from "@/app/types";
+
+import Container from "@/app/components/Container";
+import { categories } from "@/app/components/navbar/Categories";
+import ListingHead from "../../components/listings/ListingHead";
+import ListingInfo from "@/app/components/listings/ListingInfo";
 import ListingReservation from "@/app/components/listings/ListingReservation";
-import {Range} from 'react-date-range'
 
 const initialDateRange = {
   startDate: new Date(),
@@ -33,7 +35,7 @@ const LisitngClient:React.FC<LisitngClientProps> = ({listing,currentUser,reserva
   const disabledDates = useMemo(() => {
     let dates:Date[] = []
 
-    reservations.forEach((reservation) => {
+    reservations.forEach((reservation:any) => {
       const range = eachDayOfInterval({
         start: new Date(reservation.startDate),
         end:new Date(reservation.endDate)
@@ -44,6 +46,10 @@ const LisitngClient:React.FC<LisitngClientProps> = ({listing,currentUser,reserva
 
     return dates
   },[reservations])
+
+  const category = useMemo(() => {
+    return categories.find((items) => items.label === listing.category)
+  },[listing.category])
 
   const [isLoading,setIsLoading] = useState(false)
   const [totalPrice,setTotalPrice] = useState(listing.price)
@@ -88,9 +94,6 @@ const LisitngClient:React.FC<LisitngClientProps> = ({listing,currentUser,reserva
   }
 },[dateRange,listing.price])
 
-  const category = useMemo(() => {
-    return categories.find((item) => item.label == listing.category)
-  },[listing.category])
   return ( 
     <Container>
       <div className="max-w-screen-lg mx-auto">
