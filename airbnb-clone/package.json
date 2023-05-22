@@ -43,6 +43,7 @@
   },
   "devDependencies": {
     "@types/bcrypt": "^5.0.0",
+    "@types/leaflet": "^1.9.3",
     "prisma": "^4.14.0"
   }
 }
