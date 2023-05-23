@@ -42,4 +42,4 @@ npm run dev
 ![Paste env values](https://i.imgur.com/yoevhr7.png)
 
 I don't want continue write this readme - if you want more intructions - go to the Code with Antonio channel
-on [YouTube](https://www.youtube.com/@codewithantonio) or write me [icpcsenondaryemail@gmail.com](icpcsenondaryemail@gmail.com)
+on [YouTube](https://www.youtube.com/@codewithantonio) or write me [icpcsenondaryemail@gmail.com](mailto: icpcsenondaryemail@gmail.com)
