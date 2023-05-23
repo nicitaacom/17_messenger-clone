@@ -1,23 +1,10 @@
 # Clone repository
 
-# Step 1 - clone repository
+## Step 1 - clone repository
 
 ![clone repository](https://i.imgur.com/9KSgjaN.png)
 
-### Open in IDE (e.g VS Code)
-
-```
-cd airbnb-clone
-```
-
-```
-npm i
-```
-
-```
-npm run dev
-```
-## or
+### or
 
 ```
 git clone https://github.com/Nicitaa/17_airbnb-clone
@@ -37,7 +24,7 @@ npm i
 npm run dev
 ```
 
-# Step 2 - setup .env
+## Step 2 - setup .env
 
 ### 2.1 - github
 ![Go to settings](https://i.imgur.com/vnG4aMh.png)
