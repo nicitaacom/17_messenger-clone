@@ -1,20 +1,26 @@
+# What inside?
+https://17-airbnb-clone.vercel.app/
+![airbnb inside](https://i.imgur.com/4PJSAAs.png)
+
 # Clone repository
 
-## Step 1 - clone repository
+### Step 1.1 - clone repository (variant 1)
 
 ![clone repository](https://i.imgur.com/9KSgjaN.png)
 
-### or
+### or Step 1.1 - clone repository (variant 2)
 
 ```
 git clone https://github.com/Nicitaa/17_airbnb-clone
 ```
 
-### Open in IDE (e.g VS Code)
+### Step 1.2 - Open in IDE (e.g VS Code)
 
 ```
 cd airbnb-clone
 ```
+
+### Step 1.3 - Install deps
 
 ```
 npm i
