@@ -1,0 +1,48 @@
+name: CI
+
+on:
+  push:
+    branches: ["development"]
+  pull_request:
+    types: [opened, synchronize]
+
+jobs:
+  test-build:
+    name: lintrc
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js 20
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+
+      - name: Setup bun
+        uses: oven-sh/setup-bun@v1
+
+      - name: Setup prettier
+        run: bun i prettier -D
+
+      - name: prettierrc
+        run: bun prettier --write app/*
+
+      - name: Install dependencies
+        run: bun i
+
+      - name: Building
+        run: bun build app/layout.tsx --outdir ./dist
+        env:
+          REACT_SUPABASE_URL: "https://random.supabase.co"
+          REACT_SUPABASE_ANON_KEY: "123"
+
+      - name: lintrc
+        run: bun lint
+        env:
+          REACT_SUPABASE_URL: "https://random.supabase.co"
+          REACT_SUPABASE_ANON_KEY: "123"
+
+      - name: Type-checking
+        run: bun type-check
