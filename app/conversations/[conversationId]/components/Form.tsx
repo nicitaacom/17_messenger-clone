@@ -32,7 +32,7 @@ const handleUpload = (result:any) => {
 
 return (
     <div className="p-4 bg-[#303030] border-t flex items-center gap-2 lg:gap-4 w-full">
-      <CldUploadButton options={{maxFiles:1}} onUpload={() => {}} uploadPreset="e4qm3hxa">
+      <CldUploadButton options={{maxFiles:1}} onUpload={handleUpload} uploadPreset="e4qm3hxa">
         <HiPhoto className="text-sky-500" size={30}/>
       </CldUploadButton>
       <form className="flex items-center gap-2 lg:gap-4 w-full" onSubmit={handleSubmit(onSubmit)}>
