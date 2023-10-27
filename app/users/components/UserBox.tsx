@@ -30,15 +30,15 @@ export default function UserBox({ data }: UserBoxProps) {
 
   return (
     <div
-      className="relative w-full flex items-center space-x-3 bg-white p-3 hover:bg-neutral-100 
-  rounded-lg transition cursor-pointer"
+      className="relative w-full flex items-center space-x-3 bg-[#202020] p-3 hover:bg-[#404040] 
+  rounded-lg transition cursor-pointer text-neutral-100"
       onClick={handleClick}
     >
       <Avatar user={data} />
       <div className="min-w-0 flex-1">
         <div className="focus:outline-none">
           <div className="flex justify-center items-center mb-1">
-            <p className="text-sm font-medium text-gray-900">{data.name}</p>
+            <p className="text-sm font-medium">{data.name}</p>
           </div>
         </div>
       </div>

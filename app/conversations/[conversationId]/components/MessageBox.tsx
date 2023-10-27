@@ -53,6 +53,12 @@ return (
           ? <Image className="object-cover cursor-pointer hover:scale-110 transition translate" src={data.image} alt="Image" width='288' height='288'/>
           : <div>{data.body}</div>}
         </div>
+        {isLast && isOwn && seenList.length > 0 &&
+        (
+          <div className="text-xs font-light text-gray-500">
+            {`Seen by ${seenList}`}
+          </div>
+        )}
       </div>
     </div>
 )
