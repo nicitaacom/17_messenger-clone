@@ -9,7 +9,9 @@ return (
     <div className="h-full">
         <DesktopSidebar currentUser={currentUser!}/>
         <MobileFooter/>
-{children}
+        <main className="lg:pl-20 h-full">
+            {children}
+        </main>
     </div>
 )
 
