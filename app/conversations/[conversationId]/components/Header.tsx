@@ -6,6 +6,7 @@ import Link from "next/link"
 import { useMemo, useState } from "react"
 import { HiChevronLeft } from "react-icons/hi"
 import { HiEllipsisHorizontal } from "react-icons/hi2"
+import ProfileDrawer from "./ProfileDrawer"
 
 	
 
@@ -29,6 +30,8 @@ export default function Header ({conversation}:HeaderProps) {
   },[conversation])
 
 return (
+   <>
+   <ProfileDrawer data={conversation} isOpen={drawerOpen} onClose={() => setDrawerOpen(false)}/>
     <div className="bg-[#303030] text-neutral-100 w-full flex justify-between items-center shadow-sm border-b sm:px-4 px-4 py-3 lg:px-6">
       <div className="flex gap-3 items-center">
         <Link className="lg:hidden block text-sky-500 hover:text-sky-600 transition cursor-pointer"
@@ -45,7 +48,8 @@ return (
           </div>
          </div>
       </div>
-      <HiEllipsisHorizontal className="text-sky-500 cursor-pointer hover:text-sky-600 transition" size={32} onClick={() => {}}/>
+      <HiEllipsisHorizontal className="text-sky-500 cursor-pointer hover:text-sky-600 transition" size={32} onClick={() => setDrawerOpen(true)}/>
     </div>
+   </>
 )
 }
