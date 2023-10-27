@@ -1,20 +1,28 @@
-"use client"
+"use client";
 
-import clsx from "clsx"
-import { FieldErrors, FieldValues, UseFormRegister } from "react-hook-form"
+import clsx from "clsx";
+import { FieldErrors, FieldValues, UseFormRegister } from "react-hook-form";
 
 interface InputProps {
-  label: string
-  id: string
-  type?: string
-  required?: boolean
-  register: UseFormRegister<FieldValues>
-  errors: FieldErrors
-  disabled?: boolean
+  label: string;
+  id: string;
+  type?: string;
+  required?: boolean;
+  register: UseFormRegister<FieldValues>;
+  errors: FieldErrors;
+  disabled?: boolean;
 }
 
 //export default Input at the bottom because register throw error in line below
-function Input({ label, id, type, required, register, errors, disabled }: InputProps) {
+function Input({
+  label,
+  id,
+  type,
+  required,
+  register,
+  errors,
+  disabled,
+}: InputProps) {
   return (
     <div>
       <label
@@ -25,7 +33,8 @@ function Input({ label, id, type, required, register, errors, disabled }: InputP
           font-medium 
           leading-6 
           text-gray-300
-        ">
+        "
+      >
         {label}
       </label>
       <div className="mt-2">
@@ -56,12 +65,12 @@ function Input({ label, id, type, required, register, errors, disabled }: InputP
             sm:text-sm 
             sm:leading-6`,
             errors[id] && "focus:ring-rose-500",
-            disabled && "opacity-50 cursor-default"
+            disabled && "opacity-50 cursor-default",
           )}
         />
       </div>
     </div>
-  )
+  );
 }
 
-export default Input
+export default Input;
