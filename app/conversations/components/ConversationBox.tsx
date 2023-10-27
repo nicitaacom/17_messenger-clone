@@ -68,6 +68,16 @@ return (
     transition cursor-pointer p-3 text-neutral-100`,selected ? 'bg-[#404040]' : 'bg-[#303030]')}
      onClick={handleClick}>
         <Avatar user={otherUser}/>
+        <div className="min-w-0 flex-1">
+            <div className="focus:outline-none">
+                <div className="flex justify-between items-center mb-1">
+                    <p className="text-md font-medium text-neutral-100">{data.name || otherUser.name}</p>
+                    {lastMessage?.createdAt && (<p className="text-xs text-gray-400 font-light">{format(new Date(lastMessage.createdAt),'p')}</p>)}
+                </div>
+                <p className={clsx(`truncate text-sm`,hasSeen ? 'text-gray-500' : 'text-neutral-400 font-medium')}>{lastMessageText}</p>
+            </div>
+
+        </div>
      </div>
 )
 }
