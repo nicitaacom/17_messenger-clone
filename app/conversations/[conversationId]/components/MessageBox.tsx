@@ -8,6 +8,8 @@ import clsx from "clsx"
 
 import Avatar from "@/app/components/Avatar"
 import { FullMessageType } from "@/app/types"
+import { useState } from "react"
+import ImageModal from "./ImageModal"
 
 	
 
@@ -19,6 +21,7 @@ interface MessageBoxProps {
 export default function MessageBox ({data,isLast}:MessageBoxProps) {
 
   const session = useSession()
+  const [imageModalOpen,setImageModalOpen] = useState(false)
 
   const isOwn = session.data?.user?.email === data?.sender?.email
   const seenList = (data.seen || []).filter(user => user.email !== data?.sender?.email)
@@ -49,8 +52,10 @@ return (
           </div>
         </div>
         <div className={message}>
+          <ImageModal src={data.image} isOpen={imageModalOpen} onClose={() => setImageModalOpen(true)}/>
           {data.image 
-          ? <Image className="object-cover cursor-pointer hover:scale-110 transition translate" src={data.image} alt="Image" width='288' height='288'/>
+          ? <Image className="object-cover cursor-pointer hover:scale-110 transition translate" src={data.image} alt="Image"
+           width='288' height='288' onClick={() => setImageModalOpen(true)}/>
           : <div>{data.body}</div>}
         </div>
         {isLast && isOwn && seenList.length > 0 &&
