@@ -52,7 +52,7 @@ return (
           </div>
         </div>
         <div className={message}>
-          <ImageModal src={data.image} isOpen={imageModalOpen} onClose={() => setImageModalOpen(true)}/>
+          <ImageModal src={data.image} isOpen={imageModalOpen} onClose={() => setImageModalOpen(false)}/>
           {data.image 
           ? <Image className="object-cover cursor-pointer hover:scale-110 transition translate" src={data.image} alt="Image"
            width='288' height='288' onClick={() => setImageModalOpen(true)}/>
