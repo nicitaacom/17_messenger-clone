@@ -41,11 +41,22 @@ export default function Body ({initialMessages}:BodyProps) {
       bottomRef?.current?.scrollIntoView()
     }
 
+    const updateMessageHandler = (newMessage:FullMessageType) => {
+      setMessages((current) => current.map((currentMessage) => {
+        if (currentMessage.id === newMessage.id) {
+          return newMessage
+        }
+        return currentMessage
+      }))
+    }
+
     pusherClient.bind('messages:new', messagesHandler)
+    pusherClient.bind('message:update',updateMessageHandler)
 
     return () => {
       pusherClient.unsubscribe(conversationId)
       pusherClient.unbind('messages:new',messagesHandler)
+      pusherClient.unbind('message:update',updateMessageHandler)
     }
   },[conversationId])
 
