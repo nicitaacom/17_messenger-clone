@@ -21,7 +21,7 @@ export default function MessageBox ({data,isLast}:MessageBoxProps) {
   const session = useSession()
 
   const isOwn = session.data?.user?.email === data?.sender?.email
-  const seenList = (data.seen || []).filter(user => user.email !== data.sender?.email)
+  const seenList = (data.seen || []).filter(user => user.email !== data?.sender?.email)
   .map(user => user.name)
   .join(', ')
 
