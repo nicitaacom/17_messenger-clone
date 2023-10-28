@@ -11,6 +11,7 @@ import { Conversation, User } from "@prisma/client"
 import { Dialog, Transition } from "@headlessui/react"
 import Avatar from "@/app/components/Avatar"
 import ConfirmModal from "./ConfirmModal"
+import AvatarGroup from "@/app/components/AvatarGroup"
 
 	
 
@@ -45,11 +46,7 @@ function ProfileDrawer ({isOpen,onClose,data}:ProfileDrawerProps) {
 
  return (
     <>
-      <ConfirmModal isOpen={confirmOpen} onClose={() => setConfirmOpen(false)}>
-        <div className="bg-[#303030] p-5">
-          <p>Hello modal</p>
-        </div>
-      </ConfirmModal>
+      <ConfirmModal isOpen={confirmOpen} onClose={() => setConfirmOpen(false)}/>
       <Transition.Root show={isOpen} as={Fragment}>
         <Dialog as="div" className="relative z-50" onClose={onClose}>
           <Transition.Child
@@ -96,7 +93,7 @@ function ProfileDrawer ({isOpen,onClose,data}:ProfileDrawerProps) {
                       <div className="relative mt-6 flex-1 px-4 sm:px-6">
                         <div className="flex flex-col items-center">
                           <div className="mb-2">
-                            <Avatar user={otherUser}/>
+                            {data.isGroup ? <AvatarGroup users={data.users}/> : <Avatar user={otherUser}/>}
                           </div>
                           <div>
                             {title}
