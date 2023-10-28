@@ -8,6 +8,7 @@ interface IParams {
 }
 
 export async function POST(req:Request,{params}:{params:IParams}) {
+  console.log(11,'/api/conversations/[conversationId]/seen')
   try {
     const currentUser = await getCurrentUser()
     const {conversationId} = params
@@ -60,6 +61,7 @@ export async function POST(req:Request,{params}:{params:IParams}) {
         }
       }
     })
+
 
   } catch (error:unknown) {
     console.log(error,"ERROR_MESSAGES_SEEN")
