@@ -51,7 +51,7 @@ export function AuthForm() {
 
     if (variant === "REGISTER") {
       axios
-        .post(`${location.origin}/api/register`, data)
+        .post('/api/register', data)
         .then(() => signIn("credentials", data))
         .catch(() => toast.error("Something went wrong"))
         .finally(() => setIsLoading(false));

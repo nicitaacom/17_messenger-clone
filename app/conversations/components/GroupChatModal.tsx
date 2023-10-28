@@ -36,7 +36,7 @@ function GroupChatModal ({isOpen,onClose,users}:GroupChatModalProps) {
   const onSubmit:SubmitHandler<FieldValues> = (data) => {
     setIsLoading(true)
 
-    axios.post(`${location.origin}/api/conversations`,{...data,isGroup:true})
+    axios.post('/api/conversations',{...data,isGroup:true})
     .then(() => {
       router.refresh()
       onClose()

@@ -24,7 +24,7 @@ function ConfirmModal ({isOpen,onClose}:ConfirmModalProps) {
   const onDelete = useCallback(() => {
     setIsLoading(true)
 
-    axios.delete(`${location.origin}/api/conversations/${conversationId}`)
+    axios.delete(`/api/conversations/${conversationId}`)
     .then(() => {
       onClose()
       router.push('/conversations')
@@ -32,7 +32,7 @@ function ConfirmModal ({isOpen,onClose}:ConfirmModalProps) {
     })
     .catch(() => toast.error('Something went wrong'))
     .finally(() => setIsLoading(false))
-  },[conversationId,router,onClose])
+  },[conversationId, onClose, router])
 
 
 return (

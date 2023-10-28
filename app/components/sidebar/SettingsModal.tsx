@@ -44,7 +44,7 @@ function SettingsModal ({isOpen,onClose,currentUser}:SettingsModalProps) {
   const onSubmit:SubmitHandler<FieldValues> = (data) => {
     setIsLoading(true)
 
-    axios.post(`${location.origin}/api/settings`,data)
+    axios.post('/api/settings',data)
     .then(() => {
       router.refresh()
       onClose()

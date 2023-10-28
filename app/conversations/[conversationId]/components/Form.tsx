@@ -23,11 +23,11 @@ const {register,handleSubmit,setValue,formState:{errors}} = useForm<FieldValues>
 const onSubmit:SubmitHandler<FieldValues> = (data) => {
   setValue('message','',{shouldValidate:true})
 
-  axios.post(`${location.origin}/api/messages`,{...data,conversationId})
+  axios.post('/api/messages',{...data,conversationId})
 } 
 
 const handleUpload = (result:any) => {
-   axios.post(`${location.origin}/api/messages`,{image:result?.info?.secure_url,conversationId})
+   axios.post('/api/messages',{image:result?.info?.secure_url,conversationId})
 }
 
 return (
